@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Credit Profile- {{ user.username }}{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#exampleModalCenter" >Get Status</button>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                    </div>
+                    <div class="col-sm-3" style="">
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>loan amount </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ loan_amount }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>interest rate</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ interest_rate }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>installment </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ installment }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>annual_inc</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ annual_inc }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>dti </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ dti }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>delinq_2yrs</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ delinq_2yrs }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>inq_last_6mths </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ inq_last_6mths }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>open_acc</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ open_acc }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>pub_rec </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ pub_rec }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>revol_bal</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ revol_bal }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>total_acc </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ total_acc }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>revol_util</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ revol_util }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>verification_status </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ verification_status }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>home_ownership</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ home_ownership }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b>term </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ term }}
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b>purpose</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ purpose }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3" style="">
+                        <b> </b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                    </div>
+                    <div class="col-sm-3" style="">
+                        <b></b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    {% if flag   == 1 %}
+                        <h4 style="color:#12f702" class="modal-title" id="exampleModalLongTitle">Credit Status : Safe </h4>
+                    {% else %}
+                        <h4 style="color:#ff0202" class="modal-title" id="exampleModalLongTitle">Credit Status : Risky </h4>
+                    {% endif %}
+                    <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% if flag   == 1 %}
+                        {% load static %}
+                        <img alt="Safe" class="img-fluid mx-auto d-block" src=" {% static "images/safe.png" %}"  />
+                    {% else %}
+                        {% load static %}
+                        <img alt="Risky" class="img-fluid mx-auto d-block" src=" {% static "images/risky.png" %}"  />
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

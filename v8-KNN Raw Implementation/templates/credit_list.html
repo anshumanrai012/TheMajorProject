@@ -1,0 +1,27 @@
+<!-- template/post_list.html -->
+{% extends 'base.html' %}
+{% block title %}Credits{% endblock %}
+{% block content %}
+	{% if object_list %}
+		{% for credit in object_list %}
+			<div class="card">
+				<div class="card-header">
+					<a href="{% url 'credit_detail' credit.pk %}"><span class="font-weight-bold">{{ credit.author }} :</span>  <span class="text-muted">{{ credit.title }}</span>
+					, <span class="text-muted">{{ credit.date }}</span>
+				</a>
+			</div>
+			<div class="card-body">
+				<p><b>{{ credit.title }}</b></p>
+				<p>Loan Amount: {{ credit.loan_amount }}</p>
+				<p>Interest Rate: {{ credit.interest_rate }}</p>
+				<p>Installment: {{ credit.installment }}</p>
+				<p>Annual Income: {{ credit.annual_inc }}</p>
+				<a href="{% url 'credit_detail' credit.pk %}">...See more</a>
+			</div>
+		</div>
+		<br />
+	{% endfor %}
+{% else %}
+	<p> No details found. Add<a href="{% url 'credit_new' %}"> Credit Details</a></p>
+{% endif %}
+{% endblock content %}

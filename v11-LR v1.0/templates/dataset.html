@@ -1,0 +1,206 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Dataset- Predicting Loan Defaults{% endblock %}
+{% block content %}
+	<div class="container">
+
+			</div>
+			<!--about wrapper right-->
+			<div >
+				<div class="about-right">
+					<div class="about-right-heading">
+						<h1>Dataset: <a href="https://www.lendingclub.com/info/download-data.action" target="_blank"> LendingClub</a></h1>
+					</div>
+					<div class="about-right-best">
+						<div class="about-right-wrapper">
+							<a href="#"><h3>Description</h3></a>
+							<p>Time Period: 2007 – 2011</p>
+							<p>Original Dataset: 42538 samples with 111 attributes</p>
+							<p>Cleaned Dataset: 39685 samples with 17 attributes</p>
+						</div>
+						<div class="about-right-wrapper">
+							<a href="#"><h3>Possible Loan Status</h3></a>
+						</div>
+						<div class="about-right-wrapper">
+							{% load static %}
+							<img class="img-fluid" src=" {% static "images/loan_types.png" %}"  />
+						</div>
+						<div class="about-right-wrapper">
+							<a href="#"><h3>Simplified Loan Status</h3></a>
+						</div>
+						<div class="about-right-wrapper">
+							{% load static %}
+							<img class="img-fluid" src=" {% static "images/simplified_loan_types.png" %}"  />
+						</div>
+					</div>
+					<div class="about-right-boot">
+						<div class="about-right-wrapper">
+							<a href="#"><h3>Data Dictonary</h3></a>
+							<p>The Data Dictionary includes definitions for all the data attributes :</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>1. Loan Amount (loan_amnt)</h4></a>
+							<p>
+								The listed amount of the loan applied for by the borrower. If at some point in time,
+								the credit department reduces the loan amount, then it will be reflected in this value.
+								Eg. 50000.00
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>2. Interest Rate (int_rate)</h4></a>
+							<p>
+								The listed amount of the loan applied for by the borrower. If at some point in time,
+								the credit department reduces the loan amount, then it will be reflected in this value.
+								Eg. 11.97
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>3. Installment (installment)</h4></a>
+							<p>
+								The monthly payment owed by the borrower if the loan originates.
+								Eg. 162.87
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>4. Annual Income (annual_inc)</h4></a>
+							<p>
+								The self-reported annual income provided by the borrower during registration.
+								Eg. 4700000
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>5. Loan Status (loan_status)</h4></a>
+							<p>
+								Current status of the loan.
+							</p>
+							<p>
+								Eg:
+							</p>
+							<p>0 --> Risky</p>
+							<p>
+								1 --> Safe
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>6. DTI (dti)</h4></a>
+							<p>
+								A ratio calculated using the borrower’s total monthly debt payments on the total debt
+								obligations, excluding mortgage and the requested LC loan, divided by the borrower’s
+								self-reported monthly income.
+								Eg. 27.65
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>7. Deling 2 Years (delinq_2yrs)</h4></a>
+							<p>
+								The number of 30+ days past-due incidences of delinquency in the borrower's
+								credit file for the past 2 years. Eg. 0
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>8. Inquiries Last 6 Months (inq_last_6mths)</h4></a>
+							<p>
+								The number of 30+ days past-due incidences of delinquency in the borrower's credit
+								file for the past 2 years. Eg. 5
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>9. open Credit Lines (open_acc)</h4></a>
+							<p>
+								The number of open credit lines in the borrower's credit file. Eg. 9
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>10. Public Records (pub_rec)</h4></a>
+							<p>
+								Number of derogatory public records. Eg. 0
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>11. Revolving Balance (revol_bal)</h4></a>
+							<p>
+								Total credit revolving balance. Eg. 13648
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>12.revolving Line Utilization (revol_util)</h4></a>
+							<p>
+								Revolving line utilization rate, or the amount of credit the borrower is using relative
+								to all available revolving credit. Eg. 83.7
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>13. Total Number of Credit Lines (total_acc)</h4></a>
+							<p>
+								The total number of credit lines currently in the borrower's credit file. Eg. 9
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>14. Home Ownership (home_ownership)</h4></a>
+							<p>
+								The home ownership status provided by the borrower during registration or obtained from
+								the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER. Eg. Rent, Own etc.
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>15. Verification Status (verification_status)</h4></a>
+							<p>
+								Indicates if income was verified by LC, not verified, or if the income source was verified.
+								EG. Verified, Not Verified etc.
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>16. Purpose (purpose)</h4></a>
+							<p>
+								A category provided by the borrower for the loan request.
+								Eg. Car, House etc.
+							</p>
+						</div>
+					</div>
+					<div class="about-right-support">
+						<div class="about-right-wrapper">
+							<a href="#"><h4>17. Term (term)</h4></a>
+							<p>
+								The number of payments on the loan. Values are in months and can be either 36 or 60.
+								Eg. 36 Months
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Get Credit Status{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2 >Get Credit Status</h2>
+			</div>
+			<div class="col-md-6 ">
+				<button type="button" class="btn btn-outline-primary float-md-right float-xs-right" data-toggle="modal" data-target="#exampleModalCenter" >Get Status</button>
+			</div>
+		</div>
+		<form method="post">
+			<p>We suggest you to read the <a href="{% url 'dataset' %}"> Dataset Description</a> before proceeding with the prediction.</p>
+			{% csrf_token %}
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			{% for field in form.visible_fields %}
+				<div class="form-group">
+					<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+					{{ field|add_class:'form-control' }}
+					{% for error in field.errors %}
+						<span class="help-block">{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			<button type="Submit" name="submit" value="Submit" class="btn btn-success" >
+					Save & Predict
+					</button>
+			<a href="{% url 'home' %}" class="btn btn-outline-danger">Cancel</a>
+
+		</form>
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						{% if flag   == 1 %}
+							<h4 style="color:#12f702" class="modal-title" id="exampleModalLongTitle">Credit Status : Safe </h4>
+							{% elif flag == -1 %}
+							<h4 style="color:#ff0202" class="modal-title" id="exampleModalLongTitle">Credit Status : Risky </h4>
+						{% else %}
+							<h4 style="color: red;"  class="modal-title" id="exampleModalLongTitle">Incorrect Input ! </h4>
+						{% endif %}
+						<button type="button" class="close " data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						{% if submitbutton == "Submit" %}
+							{% if flag   == 1 %}
+								{% load static %}
+								<img alt="Safe" class="img-fluid mx-auto d-block" src=" {% static "images/safe.png" %}"  />
+								{% elif flag == -1 %}
+								{% load static %}
+								<img alt="Risky" class="img-fluid mx-auto d-block" src=" {% static "images/risky.png" %}"  />
+							{% else %}
+								<p >Form validation failed. Please read the <a href="{% url 'dataset' %}"> Dataset Description</a>
+							before filling the form.</p>
+						{% endif %}
+					{% else %}
+						<p>Please fill out the form first.</p>
+					{% endif %}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

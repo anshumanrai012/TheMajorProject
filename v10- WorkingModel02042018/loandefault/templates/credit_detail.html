@@ -1,0 +1,228 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card" style="background:#d6f9f8">
+        {% load static %}
+        <img class="img-fluid mx-auto d-block" src=" {% static "images/cr.png" %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ credit.title }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>1. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Loan Amount</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.loan_amount }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>2. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Interest Rate</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.interest_rate }} %
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>3. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Installment</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.installment }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>4. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Annual Income</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.annual_inc }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>5. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>DTI</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.dti }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>6. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Delinq 2 Years</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.delinq_2yrs }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>7. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Inq Last 6 Moths</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.inq_last_6mths }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>8. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Open Acc</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.open_acc }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>9. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Public Record</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.pub_rec }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>10. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Revolve Balance</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.revol_bal }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>11. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Revolve Utill</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.revol_util }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>12. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Total Acc</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.total_acc }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>13. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Home Ownership</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.home_ownership }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>14. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Verification Status</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.verification_status }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>15. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Purpose</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.purpose }}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4" style="">
+                        <b>16. </b>
+                    </div>
+                    <div class="col-sm-5" style="">
+                        <b>Term</b>
+                    </div>
+                    <div class="col-sm-3" style="color:#428cf4">
+                        {{ object.term }}
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="card-body">
+            <a href="{% url 'credit_edit' credit.pk %}" class="btn btn-warning">Edit Details</a>
+            <a href="{% url 'credit_delete' credit.pk %}" class="btn btn-danger btn-primary">Delete</a>
+        </div>
+
+    </div>
+    <br />
+    
+{% endblock content %}

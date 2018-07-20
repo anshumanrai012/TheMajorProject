@@ -1,0 +1,55 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+	<div class="card">
+		<div class="card-header">
+			<a href="{% url 'credit_detail' credit.pk %}"><span class="font-weight-bold">{{ credit.author }} :</span>  <span class="text-muted">{{ credit.title }}</span>
+			, <span class="text-muted">{{ credit.date }}</span>
+		</a>
+	</div>
+	<div class="card-body">
+		<p><b>{{ credit.title }}</b></p>
+		<p><b>Loan Amount:</b> {{ object.loan_amount }}</p>
+		<p><b>Interest Rate:</b> {{ object.interest_rate }}</p>
+		<p><b>Installment:</b> {{ object.installment }}</p>
+		<p><b>Annual Income:</b> {{ object.annual_inc }}</p>
+		<p><b>DTI :</b> {{ object.dti }}</p>
+		<p><b>Delinq 2 Years:</b> {{ object.delinq_2yrs }}</p>
+		<p><b>Inq Last 6 Moths:</b> {{ object.inq_last_6mths }}</p>
+		<p><b>Open Acc:</b> {{ object.open_acc }}</p>
+		<p><b>Public Record:</b> {{ object.pub_rec }}</p>
+		<p><b>Revolve Balance:</b> {{ object.revol_bal }}</p>
+		<p><b>Revolve Utill:</b> {{ object.revol_util }}</p>
+		<p><b>Home Ownership:</b> {{ object.home_ownership }}</p>
+		<p><b>Verification Status:</b> {{ object.verification_status }}</p>
+		<p><b>Purpose:</b> {{ object.purpose }}</p>
+		<p><b>Term:</b> {{ object.term }}</p>
+		<a href="{% url 'credit_edit' credit.pk %}">Edit</a> |
+		<a href="{% url 'credit_delete' credit.pk %}">Delete</a>
+	</div>
+</div>
+<br />
+<!--
+	<div class="post-entry">
+			<h2> {{ object.title }} </h2>
+			<p><b>Owner:</b> {{ object.author }}</p>
+			<p><b>Loan Amount:</b> {{ object.loan_amount }}</p>
+			<p><b>Interest Rate:</b> {{ object.interest_rate }}</p>
+			<p><b>Installment:</b> {{ object.installment }}</p>
+			<p><b>Annual Income:</b> {{ object.annual_inc }}</p>
+			<p><b>DTI :</b> {{ object.dti }}</p>
+			<p><b>Delinq 2 Years:</b> {{ object.delinq_2yrs }}</p>
+			<p><b>Inq Last 6 Moths:</b> {{ object.inq_last_6mths }}</p>
+			<p><b>Open Acc:</b> {{ object.open_acc }}</p>
+			<p><b>Public Record:</b> {{ object.pub_rec }}</p>
+			<p><b>Revolve Balance:</b> {{ object.revol_bal }}</p>
+			<p><b>Revolve Utill:</b> {{ object.revol_util }}</p>
+			<p><b>Home Ownership:</b> {{ object.home_ownership }}</p>
+			<p><b>Verification Status:</b> {{ object.verification_status }}</p>
+			<p><b>Purpose:</b> {{ object.purpose }}</p>
+			<p><b>Term:</b> {{ object.term }}</p>
+	</div>
+	<p><a href="{% url 'credit_edit' credit.pk %}">Edit</a> | <a href="{% url 'credit_delete' credit.pk %}">Delete</a></p>
+	<p>Back to <a href="{% url 'credit_list' %}">Credits</a>.</p>
+-->
+{% endblock content %}

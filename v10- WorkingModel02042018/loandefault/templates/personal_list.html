@@ -1,0 +1,31 @@
+<!-- template/post_list.html -->
+{% extends 'base.html' %}
+{% block title %}Profiles{% endblock %}
+{% block content %}
+	{% if object_list %}
+		{% for personal in object_list %}
+			<div class="card" style="background:#d6f9f8">
+				{% load static %}
+				<img class="img-fluid mx-auto d-block" src=" {% static "images/user.png" %}" alt="Card image cap">
+				<div class="card-body text-center" >
+					<h5 class="card-title" >{{ personal.first_name }} {{ personal.last_name }}( {{ personal.author }} )</h5>
+					<p class="card-text"> </p>
+				</div>
+				<ul class="list-group list-group-flush" >
+					<li class="list-group-item">First Name: {{ personal.first_name }}</li>
+					<li class="list-group-item">Last Name: {{ personal.last_name }}</li>
+					<li class="list-group-item">Email: {{ personal.email }}</li>
+					<li class="list-group-item">Birthdate: {{ object.birthdate }}</li>
+					<li class="list-group-item">Gender: {{ personal.gender }}</li>
+					<li class="list-group-item">Hometown: {{ personal.hometown }}</li>
+				</ul>
+				<div class="card-body">
+					<a class="btn btn-warning" href="{% url 'personal_edit' personal.pk %}">Edit Profile</a>
+				</div>
+			</div>
+			<br />
+		{% endfor %}
+	{% else %}
+		<p> No details found. Add<a href="{% url 'personal_new' %}"> Personal Details</a></p>
+	{% endif %}
+{% endblock content %}

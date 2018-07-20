@@ -1,0 +1,56 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}About- Predicting Loan Defaults{% endblock %}
+{% block content %}
+	<div class="container">
+		<!--about wrapper right-->
+		<div >
+			<div class="about-right">
+				<div class="about-right-heading">
+					<h1>Prediction Model of Loan Risk in Banks</h1>
+				</div>
+				<div class="about-right-best">
+					<div class="about-right-wrapper">
+						<a href="#"><h3>The Problem</h3></a>
+						<p>Credit Risk assessment is a crucial issue faced by Banks nowadays which helps them
+							to evaluate if a loan applicant can be a defaulter at a later stage so that they can
+							go ahead and grant the loan or not. This helps the banks to minimize the possible
+							losses and can increase the volume of credits. The prediction of borrower status
+							i.e. in future borrower will be defaulter or non-defaulter is a challenging task
+							for any organization or bank. Basically, the loan defaulter prediction is a binary
+							classification problem. Loan amount, costumer’s history governs his creditability
+						for receiving loan.</p>
+					</div>
+				</div>
+				<div class="about-right-boot">
+					<div class="about-right-wrapper">
+						<a href="#"><h3>Loan Evaluation Process</h3></a>
+						<p>The meaning of loan evaluation process is, the sequence of steps that taken
+							to decide about granting a loan to the customer or not.
+							When the customer apply for a loan granting application,
+							the bank officer must investigate about what called 5 C’s which are Character (or Credit History),
+							Cash Flow (or Capacity), Collateral, Capitalization and Conditions. It is helpful for evaluation loan
+							application and it regarded as a helpful framework for estimate the credit risk related to a probable
+						creditor.</p>
+					</div>
+				</div>
+				<div class="about-right-support">
+					<div class="about-right-wrapper">
+						<a href="#"><h3>Result</h3></a>
+						<p>
+							The result of this credit risk assessment will be the prediction of Probability
+							of Default (PD) of an applicant. Hence, it becomes important to build a model that
+							will consider the various aspects of the applicant and produces an assessment of
+							the Probability of Default of the applicant.
+							<div class="about-left">
+								{% load static %}
+								<img class="img-fluid mx-auto d-block" src=" {% static "images/1.jpg" %}"  />
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

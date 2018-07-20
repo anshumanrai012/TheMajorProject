@@ -1,0 +1,22 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card" style="background:#d6f9f8">
+    {% load static %}
+    <img class="img-fluid mx-auto d-block" src=" {% static "images/user.png" %}" alt="Card image cap">
+    <div class="card-body text-center"  >
+      <h5 class="card-title">{{ personal.first_name }} {{ personal.last_name }}( {{ personal.author }} )</h5>
+      <p class="card-text"> </p>
+    </div>
+    <ul class="list-group list-group-flush" >
+      <li class="list-group-item">First Name: {{ object.first_name }}</li>
+      <li class="list-group-item">Last Name: {{ object.last_name }}</li>
+      <li class="list-group-item">Email: {{ object.email }}</li>
+      <li class="list-group-item">Birthdate: {{ object.birthdate }}</li>
+      <li class="list-group-item">Gender: {{ object.gender }}</li>
+      <li class="list-group-item">Hometown: {{ object.hometown }}</li>
+    </ul>
+    <div class="card-body">
+      <a class="btn btn-warning" href="{% url 'personal_edit' personal.pk %}">Edit Profile</a>
+    </div>
+  {% endblock content %}

@@ -1,0 +1,25 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Target Model- Predicting Loan Defaults{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class=" ">
+				<div class="about-left">
+					<div class="about-right-best">
+						<div class="about-right-wrapper">
+							<a href="#"><h3>Target Model</h3></a>
+							<p>The model will take <a  href="{%  url 'dataset' %}"> 16 parameters</a>  as input. These input parameters will be applied to the a classifier
+							model. The outcome of this model will be whether the applicant may be defaulter
+						(or loan may be risky) at later stage or not.</p>
+					</div>
+				</div>
+				{% load static %}
+				<img class="img-fluid" src=" {% static "images/target.png" %}"  />
+			</div>
+		</div>
+		<!--about wrapper right-->
+	</div>
+</div>
+</div>
+{% endblock %}

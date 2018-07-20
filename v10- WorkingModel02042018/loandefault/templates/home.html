@@ -1,0 +1,69 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Predicting Loan Defaults- Home{% endblock %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <div class="jumbotron">
+      <h1 class="display-3">Hello, {{ user.username }}!</h1>
+      <p class="lead">Prediction model of loan risk in banks.</p>
+      <hr class="my-4">
+      <p></p>
+      <div class="row">
+        <div class="col-sm-4" style="">
+          <a class="btn btn-outline-primary" href="{% url 'predict' %}"> Get Credit Status </a>
+        </div>
+        <div class="col-sm-4" style="">
+          <a class="btn btn-outline-success" href="{% url 'credit_list' %}">View Credit Profiles</a>
+        </div>
+        <div class="col-sm-4" style="">
+          <a class="btn btn-outline-info" href="{% url 'credit_new' %}"> Add Credit Profile</a>
+        </div>
+
+      </div>
+    </div>
+
+
+  {% else %}
+    <!-- Page Content -->
+    <div class="container">
+      <!-- Heading Row -->
+      <div class="row my-4">
+        <div class="col-lg-8">
+          {% load static %}
+          <a href="{% url 'counts' %}"> <img title="Show Portal Statistics" class="img-fluid rounded" src=" {% static "images/credit-score.png" %}"/>
+          </a>
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+          <h1></h1>
+          <p>You can check your credit status here. The model will ask you a few details. See detailed description of
+            <a href="{% url 'dataset' %}"> Parameters  </a> you have to provide.</p>
+            <a class="btn btn-outline-dark" href="{% url 'predict' %}">Get Your Credit Status</a>
+          </div>
+          <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+        <!-- Call to Action Well -->
+
+        <div class="card text-white  my-4 text-center">
+          <div class="card-body" >
+            <p class=" m-0" >
+
+        </div>
+              </p>
+             <p class=" m-0" >
+               <div class="row" >
+                    <div class="col-sm-12" style="">
+                      <div style="color:black" class="" >{{stat}}</div>
+
+                    </div>
+
+                </div>`
+              </p>
+
+
+          </div>
+        </div>
+    </div>
+      {% endif %}
+    {% endblock %}

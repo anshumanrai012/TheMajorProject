@@ -1,0 +1,122 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Predicting Loan Defaults- Home{% endblock %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, {{ user.username }}!</h1>
+
+
+      <hr class="my-4">
+      <p class="lead">You have visited this page<b style="color:#1a1a1c "> {{num_visits}}</b> times.</p>
+
+    </div>
+<div class="row">
+        <div class="col-sm-4 my-4">
+          <div class="card ">
+
+            <div class="card-body">
+              <h4 class="card-title">Credit Status</h4>
+              <p class="card-text">You can get your credit status by filling a few details.</p>
+            </div>
+            <div class="card-footer">
+              <a href="{% url 'predict' %}" class="btn btn btn-outline-dark">Get Credit Status</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 my-4">
+          <div class="card">
+
+            <div class="card-body">
+              <h4 class="card-title">Credit Profiles</h4>
+              <p class="card-text">View list of all the saved credit profiles. You can get your updated credit status heres.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-success" href="{% url 'credit_list' %}">View Credit Profiles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 my-4">
+          <div class="card">
+
+            <div class="card-body ">
+              <h4 class="card-title">New Credit Profile</h4>
+              <p class="card-text">Do not have a credit profile? You can add as many credit profiles as you want.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-info" href="{% url 'credit_new' %}">Add Credit Profile</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+
+  {% else %}
+    <!-- Page Content -->
+    <div class="container">
+      <!-- Heading Row -->
+      <div class="row my-4">
+        <div class="col-lg-8">
+          {% load static %}
+          <a href="{% url 'counts' %}"> <img title="Show Portal Statistics" class="img-fluid rounded" src=" {% static "images/credit-score.png" %}"/>
+          </a>
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+           <p>
+
+          <form>
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="text" class="form-control form-control-lg" placeholder="Search Here...">
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                  <button type="submit" class="btn  btn-lg btn-primary ">Search</button>
+                </div>
+              </div>
+          </form>
+          </p>
+
+          <p>You can check your credit status here. The model will ask you a few details. See detailed description of
+            <a href="{% url 'dataset' %}"> Parameters  </a> you have to provide.</p>
+            <div class ="text-center">
+            <a class="btn btn-outline-dark" href="{% url 'predict' %}">Get Your Credit Status</a>
+            </div>
+
+          </div>
+          <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+        <!-- Call to Action Well -->
+
+
+
+        <div class="card text-white  my-4 text-center">
+          <div class="card-body" >
+            <p class=" m-0" >
+
+        </div>
+              </p>
+             <p class=" m-0" >
+               <div class="row" >
+                    <div class="col-sm-12" style="">
+                      <h5 style="color:#ff9000" class="" >{{stat}}</h5>
+
+
+                    </div>
+
+                </div>`
+              </p>
+
+
+          </div>
+        </div>
+<!-- Icons Grid -->
+
+
+
+    </div>
+      {% endif %}
+    {% endblock %}

@@ -1,0 +1,12 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+	<div class="post-entry">
+		<h2><p> {{ object.first_name }} {{ object.last_name }}</p></h2>
+		<p>Email: {{ object.email }}</p>
+		<p>Author: {{ object.author }}</p>
+		<p>Birthdate: {{ object.birthdate }}</p>
+		<p>Homehown: {{ object.hometown }}</p>
+	</div>
+	<p><a href="{% url 'personal_edit' personal.pk %}">Edit</a> </p>
+{% endblock content %}

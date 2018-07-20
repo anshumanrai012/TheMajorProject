@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Credit Profile- {{ user.username }}{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Credit Detail</h2>
+			</div>
+			<div class="col-md-6 ">
+				<button type="button" class="btn btn-primary float-md-right float-xs-right" data-toggle="modal" data-target="#exampleModalCenter" >Predict Now</button>
+			</div>
+		</div>
+		<form method="post">
+			{% csrf_token %}
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			{% for field in form.visible_fields %}
+				<div class="form-group">
+					<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+					{{ field|add_class:'form-control' }}
+					{% for error in field.errors %}
+						<span class="help-block">{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% endfor %}
+			<div class="form-group">
+				<button type="Submit" name="submit" value="Submit" class="btn btn-success" >
+				<span class="glyphicon glyphicon-ok"></span> Save Data
+				</button>
+				<a href="{% url 'home' %}" class="btn btn-default">Cancel</a>
+				<button type="button" class="btn btn-primary float-md-right float-xs-right" data-toggle="modal" data-target="#exampleModalCenter" >Predict Now</button>
+			</div>
+		</form>
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Credit Status</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						{% if submitbutton == "Submit" %}
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-4">loan amount is {{ loan_amount }}</div>
+									<div class="col-md-4 ml-auto">interest rate is {{ interest_rate }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4"> installment is {{ installment }}</div>
+									<div class="col-md-4 ml-auto">annual_inc is {{ annual_inc }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">dti is {{ dti }}</div>
+									<div class="col-md-4 ml-auto">delinq_2yrs is {{ delinq_2yrs }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">inq_last_6mths is {{ inq_last_6mths }}</div>
+									<div class="col-md-4 ml-auto">open_acc is {{ open_acc }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">pub_rec is {{ pub_rec }}</div>
+									<div class="col-md-4 ml-auto">revol_bal is {{ revol_bal }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">total_acc is {{ total_acc }}</div>
+									<div class="col-md-4 ml-auto">revol_util is {{ revol_util }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">verification_status is {{ verification_status }}</div>
+									<div class="col-md-4 ml-auto">home_ownership is {{ home_ownership }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">term is {{ term }}</div>
+									<div class="col-md-4 ml-auto">purpose is {{ purpose }}</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">result is {{ result }}</div>
+									<div class="col-md-4 ml-auto">Output is {{ prediction }}</div>
+								</div>
+							</div>
+						{% else %}
+							<p>Please fill out the form first</p>
+						{% endif %}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
